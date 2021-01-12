@@ -22,7 +22,7 @@ image_data_path = os.path.abspath('../CRBD/Images')
 gt_data_path = os.path.abspath('../CRBD/GT data')
 image_out_path = os.path.abspath('../img/algorithm_2')
 
-use_camera = False  # whether or not to use the test images or camera
+use_camera = True  # whether or not to use the test images or camera
 images_to_save = [] # which test images to save
 timing = False      # whether to time the test images
 
@@ -169,7 +169,7 @@ def crop_point_hough(crop_points):
         crop_lines = np.zeros((height, width, 3), dtype=np.uint8)
         crop_lines_hough = np.zeros((height, width, 3), dtype=np.uint8)
 
-        if crop_line_data != None:
+        if crop_line_data.any() != None:
 
             # get rid of duplicate lines. May become redundant if a similarity threshold is done
             crop_line_data_1 = tuple_list_round(crop_line_data[0], -1, 4)
